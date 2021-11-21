@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pomodoronotes"
+  },
+  "targets": {
+    "pomodoronotes": {
+      "hosting": {
+        "pomodoro": [
+          "pomodoronotes"
+        ]
+      }
+    }
+  }
+}
