@@ -17,7 +17,7 @@
                         max="100"></progress>
                     <div class="columns is-centered">
                         <div class="field has-addons">
-                            <p class="control" *ngFor="let counter of counters">
+                            <p class="control" *ngFor="let counter of counterController.counters">
                                 <button class="button is-c-button-tab is-primary" (click)="setCounter(counter)"
                                     [ngClass]="{'is-active': isActive(counter)}">
                                     <span>{{counter.text}}</span>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="column is-4">
                             <a class="button is-primary is-rounded animate__animated animate__fadeIn"
-                                (click)="setCounter(counter.getNextCounter())" *ngIf="interval">
+                                (click)="setCounter(counterController.getNextCounter())" *ngIf="interval">
                                 <i class="bi bi-caret-right"></i></a>
                         </div>
                     </div>

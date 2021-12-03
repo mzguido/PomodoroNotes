@@ -1,13 +1,15 @@
-import { Counter } from '../interfaces/Counter.interface';
+import { ICounter } from '../interfaces/Counter.interface';
 import { BreakCounter } from './BreakCounter';
+import { Counter } from './Counter';
 import { LongBreakCounter } from './LongBreakCounter';
 import { WorkCounter } from './WorkCounter';
 
 export class CounterController {
   static instance: CounterController;
-  workCounter = WorkCounter.getInstance();
-  breakCounter = BreakCounter.getInstance();
-  longBreakCounter = LongBreakCounter.getInstance();
+  workCounter = new Counter(25 * 60, 'Work');
+  breakCounter = new Counter(5 * 60, 'Break');
+  longBreakCounter = new Counter(15 * 60, 'Long break');
+  counters = [this.workCounter, this.breakCounter, this.longBreakCounter];
   currentCounter = this.workCounter;
   i = 0;
 
@@ -23,9 +25,13 @@ export class CounterController {
       this.i++;
       if (this.i === 4) {
         this.i = 1;
-        return LongBreakCounter.getInstance();
+        this.currentCounter = this.longBreakCounter;
+      } else {
+        this.currentCounter = this.breakCounter;
       }
-      return BreakCounter.getInstance();
+    } else {
+      this.currentCounter = this.workCounter;
     }
+    return this.currentCounter;
   }
 }

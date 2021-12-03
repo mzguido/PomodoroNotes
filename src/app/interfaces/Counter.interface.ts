@@ -1,5 +1,5 @@
-export interface Counter {
+export interface ICounter {
   time: number;
   text: string;
-  getNextCounter(): Counter;
+  // getNextCounter(): ICounter;
 }

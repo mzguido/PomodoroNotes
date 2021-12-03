@@ -1,9 +1,8 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Counter } from 'src/app/interfaces/Counter.interface';
-import { BreakCounter } from 'src/app/models/BreakCounter';
-import { LongBreakCounter } from 'src/app/models/LongBreakCounter';
-import { WorkCounter } from 'src/app/models/WorkCounter';
+import { Title } from '@angular/platform-browser';
+
+import { ICounter } from 'src/app/interfaces/Counter.interface';
+import { CounterController } from 'src/app/models/CounterController';
 
 @Component({
   selector: 'app-countdown',
@@ -11,12 +10,8 @@ import { WorkCounter } from 'src/app/models/WorkCounter';
   styleUrls: ['./countdown.component.scss'],
 })
 export class CountdownComponent implements OnInit {
-  counter = WorkCounter.getInstance();
-  counters = [
-    WorkCounter.getInstance(),
-    BreakCounter.getInstance(),
-    LongBreakCounter.getInstance(),
-  ];
+  counterController = CounterController.getInstance();
+  counter = this.counterController.currentCounter;
 
   time = this.counter.time;
   mins!: string;
@@ -27,7 +22,7 @@ export class CountdownComponent implements OnInit {
 
   alarm = new Audio(`../../../assets/sounds/Cyclist.ogg`);
 
-  constructor() {
+  constructor(private titleService: Title) {
     this.getMinsAndSecs();
   }
 
@@ -39,7 +34,7 @@ export class CountdownComponent implements OnInit {
     if (this.time == 0) {
       this.stopInterval();
       this.alarm.play();
-      this.setCounter(this.counter.getNextCounter());
+      this.setCounter(this.counterController.getNextCounter());
     } else {
       this.time--;
     }
@@ -62,15 +57,20 @@ export class CountdownComponent implements OnInit {
 
     this.mins = mins < 10 ? '0' + mins.toString() : mins.toString();
     this.secs = secs < 10 ? '0' + secs.toString() : secs.toString();
+    this.setTitle(`${this.counter.text} - ${this.mins}:${this.secs}`);
   }
 
-  setCounter(c: Counter) {
+  setCounter(c: ICounter) {
     this.counter = c;
     this.time = this.counter.time;
     this.getMinsAndSecs();
   }
 
-  isActive(counter: Counter) {
+  isActive(counter: ICounter) {
     return counter === this.counter;
+  }
+
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }

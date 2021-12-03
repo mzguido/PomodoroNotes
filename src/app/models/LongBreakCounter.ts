@@ -1,19 +1,19 @@
-import { Counter } from '../interfaces/Counter.interface';
+import { ICounter } from '../interfaces/Counter.interface';
 import { WorkCounter } from './WorkCounter';
 
-export class LongBreakCounter implements Counter {
-  static instance: Counter;
+export class LongBreakCounter implements ICounter {
+  static instance: ICounter;
   time = 10 * 60;
   text = 'Descanso';
 
   WorkCounter() {}
 
-  static getInstance(): Counter {
+  static getInstance(): ICounter {
     if (!this.instance) this.instance = new LongBreakCounter();
     return this.instance;
   }
 
-  getNextCounter(): Counter {
+  getNextCounter(): ICounter {
     return WorkCounter.getInstance();
   }
 }
