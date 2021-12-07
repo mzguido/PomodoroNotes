@@ -1,0 +1,66 @@
+<div class="columns is-centered my-4 mx-2">
+
+    <div class="container tasks-container">
+        <div class="box is-countdown-box has-background-white">
+
+            <!-- Tareas -->
+            <div class="columns is-centered is-mobile">
+                <div class="column">
+                    <div *ngFor="let task of tasks">
+                        <div class="task-container" (click)="selectTask(task)"
+                            [ngClass]="{'selected': isSelected(task)}">
+                            <div class="columns is-multiline is-mobile">
+                                <div class="column task-item is-10">
+                                    <h4>{{task.title}}</h4>
+                                </div>
+                                <div class="column task-item is-2">
+                                    <h5>{{task.completed}}/{{task.pomodoros}}</h5>
+                                </div>
+                                <div class="column task-item">
+                                    <p>{{task.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered is-mobile">
+                <button class="button is-primary is-countdown-button" (click)="newTask()" *ngIf="!addingTask">
+                    <strong>Agregar</strong></button>
+            </div>
+            <!-- Panel para añadir tarea -->
+            <div class="container task-container" *ngIf="addingTask">
+                <div class="field">
+                    <label class="label">Nueva tarea</label>
+                    <div class="control">
+                        <div class="columns is-mobile">
+                            <div class="column is-8">
+                                <input class="input" type="text" placeholder="Titulo" [(ngModel)]="title">
+                            </div>
+                            <div class="column">
+                                <input class="input" type="number" placeholder="Cantidad" [(ngModel)]="pomodoros">
+                            </div>
+                        </div>
+                        <div class="columns is-mobile">
+                            <div class="column">
+                                <input class="input" type="text" placeholder="Descripcion" [(ngModel)]="description">
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column is-centered check-cancel"
+                                style="padding-top:0px; padding-bottom:0px; font-size:2em">
+                                <a (click)="confirmTask()">
+                                    <i class="bi bi-check-circle"></i>
+                                </a>
+                                <a (click)="cancelTask()">
+                                    <i class="bi bi-x-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

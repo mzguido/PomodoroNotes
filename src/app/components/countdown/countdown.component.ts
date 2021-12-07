@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 import { ICounter } from 'src/app/interfaces/Counter.interface';
 import { CounterController } from 'src/app/models/CounterController';
+import { PomodoroService } from 'src/app/services/pomodoro.service';
 
 @Component({
   selector: 'app-countdown',
@@ -22,7 +23,10 @@ export class CountdownComponent implements OnInit {
 
   alarm = new Audio(`../../../assets/sounds/Cyclist.ogg`);
 
-  constructor(private titleService: Title) {
+  constructor(
+    private titleService: Title,
+    private pomodoroService: PomodoroService
+  ) {
     this.getMinsAndSecs();
   }
 

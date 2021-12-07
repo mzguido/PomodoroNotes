@@ -8,12 +8,22 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TaskContainerComponent } from './components/task-container/task-container.component';
+import { TaskComponent } from './components/task/task.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, CountdownComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    CountdownComponent,
+    NavbarComponent,
+    TaskContainerComponent,
+    TaskComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],

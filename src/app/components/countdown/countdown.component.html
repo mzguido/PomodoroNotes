@@ -1,13 +1,13 @@
 <div class="ripple-background">
-    <div class="circle xxlarge shade1"></div>
-    <div class="circle xlarge shade2"></div>
+    <!-- <div class="circle xxlarge shade1"></div>
+    <div class="circle xlarge shade2"></div> -->
     <div class="circle large shade3"></div>
-    <div class="circle medium shade4"></div>
-    <div class="circle small shade5"></div>
+    <div class="circle medium shade2"></div>
+    <div class="circle small shade1"></div>
 </div>
 
 
-<div class="columns is-centered my-6 mx-2">
+<div class="columns is-centered my-4 mx-2">
 
     <div class="container count-container">
         <div class="box is-countdown-box has-background-white">
@@ -15,7 +15,7 @@
                 <div class="column is-full">
                     <progress class="progress count-progress is-info is-small" value="{{progress}}"
                         max="100"></progress>
-                    <div class="columns is-centered">
+                    <div class="columns is-centered is-mobile">
                         <div class="field has-addons">
                             <p class="control" *ngFor="let counter of counterController.counters">
                                 <button class="button is-c-button-tab is-primary" (click)="setCounter(counter)"
@@ -35,10 +35,10 @@
                         </p> -->
                         </div>
                     </div>
-                    <div class="columns is-centered">
+                    <div class="columns is-centered is-mobile">
                         <p class="countdown has-text-white">{{mins}}:{{secs}}</p>
                     </div>
-                    <div class="columns is-centered">
+                    <div class="columns is-centered is-mobile">
                         <div class="column is-offset-4 is-4">
                             <a class="button is-primary is-countdown-button" (click)="initInterval()"
                                 *ngIf="!interval"><strong>Empezar</strong></a>
@@ -48,7 +48,7 @@
                         <div class="column is-4">
                             <a class="button is-primary is-rounded animate__animated animate__fadeIn"
                                 (click)="setCounter(counterController.getNextCounter())" *ngIf="interval">
-                                <i class="bi bi-caret-right"></i></a>
+                                <i class="bi bi-caret-right" style="width:0px; margin-left: -15px;"></i></a>
                         </div>
                     </div>
                 </div>
