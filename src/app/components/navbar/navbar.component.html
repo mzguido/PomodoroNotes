@@ -1,33 +1,36 @@
-<nav class="navbar is-transparent">
+<nav class="navbar" role="navigation" aria-label="main navigation" style='background: transparent;'>
     <div class="navbar-brand">
         <!-- <a class="navbar-item" href="https://bulma.io">
-            <img src="../../../assets/img/logo.png" width="112" height="28" style="color:white">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a> -->
-        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+            (click)='toggleBurgerMenu()'>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu">
         <!-- <div class="navbar-start">
             <a class="navbar-item">
                 Home
             </a>
         </div> -->
-    </div>
-    <div class="navbar-end">
-        <div class="navbar-item">
-            <!-- <div class="field is-grouped">
-                <p class="control">
-                </p>
-                <p class="control">
-                    <a class="navbar-item">
-                        Configuracion
-                    </a>
-                </p>
-            </div> -->
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <!-- boton para cambiar tema -->
+                    <!-- <button class='button is-c-button-tab is-active' style='width:125px; margin-bottom:0px'
+                        (click)='switchTheme()'>Cambiar
+                        tema</button> -->
+                    <a (click)='toggleConfigPanel()'><i class="bi bi-gear-fill"></i> Configuracion </a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
+
+<app-config-panel></app-config-panel>

@@ -1,4 +1,4 @@
-<div class="columns is-centered my-4 mx-2">
+<div class="columns is-centered mt-4 mx-2">
 
     <div class="container tasks-container">
         <div class="box is-countdown-box has-background-white">
@@ -6,32 +6,45 @@
             <!-- Tareas -->
             <div class="columns is-centered is-mobile">
                 <div class="column">
-                    <div *ngFor="let task of tasks">
-                        <div class="task-container" (click)="selectTask(task)"
-                            [ngClass]="{'selected': isSelected(task)}">
+                    <div *ngIf='tasks.length == 0' class="task-container">
+                        <p>Aun no se agregaron tareas.</p>
+                    </div>
+                    <div *ngFor="let task of tasks" id='task{{task.id}}' class='animate__animated animate__fadeInDown'>
+                        <div [ngClass]="{'selected': isSelected(task)}" class="task-container"
+                            (click)="selectTask(task)">
                             <div class="columns is-multiline is-mobile">
-                                <div class="column task-item is-10">
-                                    <h4>{{task.title}}</h4>
+                                <div class="column is-11">
+                                    <div class="columns is-multiline is-mobile">
+                                        <div class="column task-item is-10">
+                                            <h4>{{task.title}}</h4>
+                                        </div>
+                                        <div class="column pomodoro-count is-2"
+                                            style="padding-left:5px;padding-right:5px">
+                                            <div [ngClass]="{'is-completed':isCompleted(task)}">
+                                                <h6>{{task.completed}}/{{task.pomodoros}}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="column task-item" style="min-height: 30px;">
+                                            <p>{{task.description}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="column task-item is-2">
-                                    <h5>{{task.completed}}/{{task.pomodoros}}</h5>
-                                </div>
-                                <div class="column task-item">
-                                    <p>{{task.description}}</p>
+                                <div class="column is-1 task-options" style="padding:0px; font-size:1.25em">
+                                    <a (click)='deleteTask(task)'><i class="bi bi-trash"></i></a>
+                                    <a (click)='editTask(task)'><i class="bi bi-pencil-square"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="columns is-centered is-mobile">
-                <button class="button is-primary is-countdown-button" (click)="newTask()" *ngIf="!addingTask">
-                    <strong>Agregar</strong></button>
-            </div>
-            <!-- Panel para añadir tarea -->
-            <div class="container task-container" *ngIf="addingTask">
+
+            <!-- Panel para añadir y editar tarea -->
+            <div class="container task-container edit-panel animate__animated animate__fadeInDown"
+                *ngIf="addingTask || edditingTask">
                 <div class="field">
-                    <label class="label">Nueva tarea</label>
+                    <label *ngIf="addingTask" class="label">Nueva tarea</label>
+                    <label *ngIf="edditingTask" class="label">Editar tarea</label>
                     <div class="control">
                         <div class="columns is-mobile">
                             <div class="column is-8">
@@ -60,7 +73,11 @@
                     </div>
                 </div>
             </div>
+            <div class="columns is-centered is-mobile">
+                <button class="button is-primary is-countdown-button mb-3" (click)="newTask()"
+                    *ngIf="!addingTask && !edditingTask">
+                    <strong>Agregar</strong></button>
+            </div>
         </div>
-
     </div>
 </div>

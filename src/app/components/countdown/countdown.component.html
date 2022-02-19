@@ -9,7 +9,8 @@
 
 <div class="columns is-centered my-4 mx-2">
 
-    <div class="container count-container">
+    <div class="container count-container"
+        *ngIf="pomodoroConfig?.style == 'normal' || !pomodoroConfig?.hasOwnProperty('style')">
         <div class="box is-countdown-box has-background-white">
             <div class="columns">
                 <div class="column is-full">
@@ -17,38 +18,79 @@
                         max="100"></progress>
                     <div class="columns is-centered is-mobile">
                         <div class="field has-addons">
-                            <p class="control" *ngFor="let counter of counterController.counters">
+                            <p class="control" *ngFor="let counter of counters">
                                 <button class="button is-c-button-tab is-primary" (click)="setCounter(counter)"
                                     [ngClass]="{'is-active': isActive(counter)}">
                                     <span>{{counter.text}}</span>
                                 </button>
                             </p>
-                            <!-- <p class="control">
-                            <button class="button is-primary is-countdown-button">
-                                <span>Center</span>
-                            </button>
-                        </p>
-                        <p class="control">
-                            <button class="button is-primary is-countdown-button">
-                                <span>Right</span>
-                            </button>
-                        </p> -->
                         </div>
                     </div>
                     <div class="columns is-centered is-mobile">
                         <p class="countdown has-text-white">{{mins}}:{{secs}}</p>
                     </div>
                     <div class="columns is-centered is-mobile">
-                        <div class="column is-offset-4 is-4">
+                        <div class="column is-offset-4 is-4" style="display: flex; justify-content: center">
                             <a class="button is-primary is-countdown-button" (click)="initInterval()"
                                 *ngIf="!interval"><strong>Empezar</strong></a>
                             <a class="button is-primary is-countdown-button" (click)="stopInterval()"
                                 *ngIf="interval"><strong>Parar</strong></a>
                         </div>
                         <div class="column is-4">
-                            <a class="button is-primary is-rounded animate__animated animate__fadeIn"
-                                (click)="setCounter(counterController.getNextCounter())" *ngIf="interval">
-                                <i class="bi bi-caret-right" style="width:0px; margin-left: -15px;"></i></a>
+                            <a class="button is-primary is-rounded animate__animated animate__fadeIn" style="width:0px;"
+                                (click)="setCounter(getNextCounter())" *ngIf="interval">
+                                <i class="bi bi-caret-right-fill" style="width:0px; margin-left: -15px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container count-container" *ngIf="pomodoroConfig?.style == 'circular' ">
+        <div class="box is-countdown-box has-background-white">
+            <div class="columns">
+                <div class="column is-full">
+                    <!-- <progress class="progress count-progress is-info is-small" value="{{progress}}"
+                        max="100"></progress> -->
+                    <div class="columns is-centered is-mobile">
+                        <div class="field has-addons">
+                            <p class="control" *ngFor="let counter of counters">
+                                <button class="button is-c-button-tab is-primary mt-3" (click)="setCounter(counter)"
+                                    [ngClass]="{'is-active': isActive(counter)}">
+                                    <span>{{counter.text}}</span>
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="columns is-centered is-mobile my-4">
+                        <div class="box2">
+                            <div class="percent">
+                                <div class="number">
+                                    <p style='margin-top:15px; margin-bottom:-15px'>{{mins}}</p>
+                                    <p style='margin-top:-15px; margin-bottom:15px'>{{secs}}</p>
+                                </div>
+                                <svg>
+                                    <circle cx="75" cy="75" r="70"></circle>
+                                    <circle cx="75" cy="75" r="70"
+                                        [ngStyle]="{'stroke-dashoffset': (440 - (440 * progress) / 100)}"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-offset-4 is-4" style="display: flex; justify-content: center">
+                            <a class="button is-primary is-countdown-button" (click)="initInterval()"
+                                *ngIf="!interval"><strong>Empezar</strong></a>
+                            <a class="button is-primary is-countdown-button" (click)="stopInterval()"
+                                *ngIf="interval"><strong>Parar</strong></a>
+                        </div>
+                        <div class="column is-4">
+                            <a class="button is-primary is-rounded animate__animated animate__fadeIn" style="width:0px;"
+                                (click)="setCounter(getNextCounter())" *ngIf="interval">
+                                <i class="bi bi-caret-right-fill" style="width:0px; margin-left: -15px;"></i></a>
                         </div>
                     </div>
                 </div>

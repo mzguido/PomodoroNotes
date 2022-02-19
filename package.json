@@ -22,7 +22,9 @@
     "@angular/router": "~11.2.7",
     "bulma": "^0.9.3",
     "firebase": "^8.8.0",
+    "nanoid": "^3.1.30",
     "rxjs": "~6.6.0",
+    "shortid": "^2.2.16",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

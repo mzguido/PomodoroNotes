@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TaskContainerComponent } from './components/task-container/task-container.component';
 import { TaskComponent } from './components/task/task.component';
 import { FormsModule } from '@angular/forms';
+import { ConfigPanelComponent } from './components/config-panel/config-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     TaskContainerComponent,
     TaskComponent,
+    ConfigPanelComponent,
   ],
   imports: [
     BrowserModule,
