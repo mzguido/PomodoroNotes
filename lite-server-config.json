@@ -1,0 +1,4 @@
+{
+    "port": 4602,
+    "server": { "baseDir": "dist/pomodoro" }
+}

@@ -1,36 +1,55 @@
-<nav class="navbar" role="navigation" aria-label="main navigation" style='background: transparent;'>
-    <div class="navbar-brand">
-        <!-- <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-        </a> -->
+<nav
+  class="navbar"
+  role="navigation"
+  aria-label="main navigation"
+  style="background: transparent"
+>
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <span class="brand">PomoNotes</span>
+    </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
-            (click)='toggleBurgerMenu()'>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
+    <a class="config-btn" (click)="toggleConfigPanel()"
+      ><i class="bi bi-gear-fill"></i> Configuracion
+    </a>
+  </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-        <!-- <div class="navbar-start">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <!-- <div class="navbar-start">
             <a class="navbar-item">
                 Home
             </a>
         </div> -->
 
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <!-- boton para cambiar tema -->
-                    <!-- <button class='button is-c-button-tab is-active' style='width:125px; margin-bottom:0px'
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <!-- boton para cambiar tema -->
+          <!-- <button class='button is-c-button-tab is-active' style='width:125px; margin-bottom:0px'
                         (click)='switchTheme()'>Cambiar
                         tema</button> -->
-                    <a (click)='toggleConfigPanel()'><i class="bi bi-gear-fill"></i> Configuracion </a>
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 </nav>
 
 <app-config-panel></app-config-panel>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
+  .config-btn {
+    align-self: center;
+    width: 130px;
+  }
+
+  .brand {
+    font-family: "Dosis", sans-serif;
+    font-size: 1.5rem;
+  }
+
+  .navbar-brand {
+    justify-content: space-between !important;
+    width: 100%;
+  }
+</style>

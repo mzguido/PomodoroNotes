@@ -12,6 +12,7 @@ import { TaskContainerComponent } from './components/task-container/task-contain
 import { TaskComponent } from './components/task/task.component';
 import { FormsModule } from '@angular/forms';
 import { ConfigPanelComponent } from './components/config-panel/config-panel.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,18 @@ import { ConfigPanelComponent } from './components/config-panel/config-panel.com
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerImmediately',
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerImmediately',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
