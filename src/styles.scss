@@ -73,6 +73,8 @@ div.main-container[data-theme="blue"] {
   // --shadeColor: rgb(70, 99, 155);
   // --secColorRGB: 122, 159, 235;
   // background-color: var(--bgColor);
+
+  --animate-duration: 0.5s;
 }
 
 html {
@@ -99,6 +101,8 @@ body {
 
 .main-container {
   min-height: 100vh;
+  overflow: hidden;
+  z-index: -20;
 }
 
 nav {
@@ -193,9 +197,10 @@ progress.is-info.is-small {
   // box-shadow: 0 3px 2px 2px rgba(255, 255, 255, 0.144);
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 15%),
     0 0px 0 1px rgb(10 10 10 / 2%);
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(5.5px);
+  // backdrop-filter: blur(10px);
+  // -webkit-backdrop-filter: blur(5.5px);
   border-radius: 10px !important;
+  overflow: hidden;
 }
 
 .circle {
@@ -203,7 +208,9 @@ progress.is-info.is-small {
   border-radius: 50%;
   // background: #487a78;
   // background-color: var(--secondaryColor);
+  z-index: 0;
   animation: ripple 30s infinite;
+  filter: blur(10px);
   // box-shadow: 0px 0px 1px 0px #3f6b6a;
 }
 
@@ -286,7 +293,7 @@ progress.is-info.is-small {
 
 .tasks-container {
   max-width: 450px !important;
-  padding-bottom: 30px;
+  padding-bottom: 13px;
 }
 
 .task-container {
@@ -323,6 +330,7 @@ progress.is-info.is-small {
 .edit-panel {
   margin-top: -10px;
   margin-bottom: 25px;
+  cursor: default;
 }
 .task-options {
   display: flex;
@@ -352,6 +360,7 @@ progress.is-info.is-small {
 .check-cancel {
   display: flex;
   justify-content: space-evenly;
+  margin: 0 0 7px 0;
 }
 
 .bi-check-circle {
@@ -554,4 +563,14 @@ h6 {
 
 p {
   color: rgb(56, 56, 56);
+}
+
+.button {
+  border-radius: 25px;
+  height: 30px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }

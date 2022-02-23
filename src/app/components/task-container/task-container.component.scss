@@ -1,0 +1,42 @@
+.list-title {
+  color: var(--primaryColor);
+  text-align: center;
+  margin: -15px 0 5px 0;
+}
+
+.list-buttons {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: var(--primaryColor);
+  display: flex;
+  width: 90px;
+  justify-content: space-between;
+}
+
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+
+.delete-confirmation {
+  max-width: 300px;
+  max-height: 70px;
+  z-index: 10;
+  position: fixed;
+  margin: auto;
+  background: var(--primaryColor);
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 5px;
+  text-align: center;
+}
+
+.colapsed {
+  display: none !important;
+}

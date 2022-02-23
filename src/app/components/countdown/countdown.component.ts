@@ -116,10 +116,11 @@ export class CountdownComponent implements OnInit {
       this.i++;
       if (this.pomodoroService.selectedTask !== undefined) {
         this.pomodoroService.selectedTask.completed++;
-        localStorage.setItem(
-          'tasks',
-          JSON.stringify(this.pomodoroService.tasks)
-        );
+        this.pomodoroService.save();
+        // localStorage.setItem(
+        //   'tasks',
+        //   JSON.stringify(this.pomodoroService.tasks)
+        // );
       }
       if (this.i === 4) {
         this.i = 1;

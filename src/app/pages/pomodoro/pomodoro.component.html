@@ -1,0 +1,71 @@
+<app-countdown></app-countdown>
+<app-task-container
+  *ngFor="let list of lists"
+  [list]="list"
+  (saveList)="saveListLS($event)"
+></app-task-container>
+
+<!-- Panel para añadir y editar lista -->
+
+<app-list-modal
+  *ngIf="addingList"
+  [isNew]="true"
+  (newList)="confirmList($event)"
+></app-list-modal>
+<!-- <div
+  class="container task-container edit-panel animate__animated animate__fadeInDown"
+  *ngIf="addingList || edditingList"
+  style="max-width: 450px; margin-top: 10px"
+>
+  <div class="field">
+    <label *ngIf="addingList" class="label">Nueva lista</label>
+    <label *ngIf="edditingList" class="label">Editar lista</label>
+    <div class="control">
+      <div class="columns is-mobile">
+        <div class="column">
+          <input
+            class="input"
+            type="text"
+            placeholder="Titulo"
+            [(ngModel)]="title"
+          />
+        </div>
+      </div>
+      <div class="columns is-mobile">
+        <div class="column">
+          <input
+            class="input"
+            type="text"
+            placeholder="Descripcion"
+            [(ngModel)]="description"
+          />
+        </div>
+      </div>
+      <div class="columns">
+        <div
+          class="column is-centered check-cancel"
+          style="padding-top: 0px; padding-bottom: 0px; font-size: 2em"
+        >
+          <a (click)="confirmList()">
+            <i class="bi bi-check-circle"></i>
+          </a>
+          <a (click)="cancelList()">
+            <i class="bi bi-x-circle"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="columns is-centered is-mobile">
+  <button
+    class="button is-primary is-countdown-button mb-3"
+    (click)="newList()"
+    style="width: 130px; margin-top: 20px"
+    *ngIf="!addingList && !edditingList"
+  >
+    <strong>Nueva Lista</strong>
+  </button>
+</div>
+
+<div id="black-background" class="is-hidden"></div>

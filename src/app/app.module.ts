@@ -13,6 +13,9 @@ import { TaskComponent } from './components/task/task.component';
 import { FormsModule } from '@angular/forms';
 import { ConfigPanelComponent } from './components/config-panel/config-panel.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { PomodoroComponent } from './pages/pomodoro/pomodoro.component';
+import { ListModalComponent } from './components/modals/list-modal/list-modal.component';
+import { YesNoComponent } from './comnponents/modals/yes-no/yes-no.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     TaskContainerComponent,
     TaskComponent,
     ConfigPanelComponent,
+    PomodoroComponent,
+    ListModalComponent,
+    YesNoComponent,
   ],
   imports: [
     BrowserModule,
