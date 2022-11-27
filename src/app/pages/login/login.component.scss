@@ -1,0 +1,37 @@
+.login-container {
+  height: 200px;
+  width: 300px;
+  position: fixed;
+  background: var(--primaryColor);
+  z-index: 10;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#black-background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+  background: rgba(41, 41, 41, 0.527);
+}
+
+.google-btn {
+  background: #4285f4;
+  color: white;
+  width: fit-content;
+}
+
+.google-btn:hover {
+  color: white;
+  border-color: #4285f4;
+}

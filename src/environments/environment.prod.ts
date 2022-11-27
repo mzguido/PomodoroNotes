@@ -1,4 +1,5 @@
 export const environment = {
+  useEmulators: false,
   production: true,
   firebase: {
     apiKey: 'AIzaSyA19WSv6u9wpn6GpvEYxxotw5DnBSdlAGs',

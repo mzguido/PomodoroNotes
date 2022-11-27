@@ -1,41 +1,57 @@
 <div class="modal config-panel">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Configuracion</p>
-            <button class="delete" aria-label="close" (click)='toggleConfigPanel()'></button>
-        </header>
-        <section class="modal-card-body">
-            <!-- Content ... -->
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Configuracion</p>
+      <button
+        class="delete"
+        aria-label="close"
+        (click)="toggleConfigPanel()"
+      ></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
 
-            <div class="field">
-                <div class="control">
-                    <h5>Contador</h5>
-                    <div class="columns is-mobile">
-                        <div class="column">
-                            <div class="columns is-mobile mb-0">
-                                <div class="column">
-                                    <label><strong>Work</strong></label>
-                                    <input class="input" type="number" placeholder="Work"
-                                        [(ngModel)]="pomodoroConfig.work">
-                                </div>
-                                <div class="column">
-                                    <label><strong>Break</strong></label>
-                                    <input class="input" type="number" placeholder="Break"
-                                        [(ngModel)]="pomodoroConfig.break">
-                                </div>
-                                <div class="column">
-                                    <label><strong>Long break</strong></label>
-                                    <input class="input" type="number" placeholder="Long break"
-                                        [(ngModel)]="pomodoroConfig.longBreak">
-                                </div>
-                            </div>
-                            <label class="checkbox">
-                                <input type="checkbox" [(ngModel)]="pomodoroConfig.autoStart">
-                                <strong> Empezar automaticamente</strong>
-                            </label>
+      <div class="field">
+        <div class="control">
+          <h5>Contador</h5>
+          <div class="columns is-mobile">
+            <div class="column">
+              <div class="columns is-mobile mb-0">
+                <div class="column">
+                  <label><strong>Work</strong></label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Work"
+                    [(ngModel)]="pomodoroConfig.work"
+                  />
+                </div>
+                <div class="column">
+                  <label><strong>Break</strong></label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Break"
+                    [(ngModel)]="pomodoroConfig.break"
+                  />
+                </div>
+                <div class="column">
+                  <label><strong>Long break</strong></label>
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Long break"
+                    [(ngModel)]="pomodoroConfig.longBreak"
+                  />
+                </div>
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" [(ngModel)]="pomodoroConfig.autoStart" />
+                <strong> Empezar automaticamente</strong>
+              </label>
 
-                            <!-- <span class="control">
+              <!-- <span class="control">
                                 <label class="is-checkbox is-rounded">
                                     <input id="mycheckbox" checked="checked" type="checkbox">
                                     <span class="icon checkmark">
@@ -44,56 +60,95 @@
                                     <span>My checkbox</span>
                                 </label>
                             </span> -->
-                        </div>
-                    </div>
-
-                    <h5>Estilo del contador</h5>
-                    <div class="columns is-mobile mt-2"
-                        style="display: flex; justify-content: space-evenly; align-items: center">
-                        <div class="column is-narrow counter-container"
-                            style="display: flex; justify-content: center; align-items: center"
-                            [ngClass]="{'selected':  normalStyle()}" (click)="setStyle('normal')">
-                            <p class="countdown has-text-white" style="font-size:60px">25:00</p>
-                        </div>
-                        <div class="column is-narrow counter-container" style="display: flex; justify-content: center;"
-                            [ngClass]="{'selected':  !normalStyle()}" (click)="setStyle('circular')">
-                            <div class="box2">
-                                <div class="percent">
-                                    <div class="number">
-                                        <p style='margin-top:15px; margin-bottom:-15px'>25</p>
-                                        <p style='margin-top:-15px; margin-bottom:15px'>00</p>
-                                    </div>
-                                    <svg>
-                                        <circle cx="75" cy="75" r="70"></circle>
-                                        <circle cx="75" cy="75" r="70"
-                                            [ngStyle]="{'stroke-dashoffset': (440 - (440 * 0) / 100)}"></circle>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <h5>Tema</h5>
-                    <div class="columns is-mobile">
-                        <div class="column is-2">
-                            <label><strong>Verde</strong></label>
-                            <div class='theme-selector' style='background:rgb(87, 148, 144);'
-                                (click)="setTheme('green')"></div>
-                        </div>
-                        <div class="column is-2">
-                            <label><strong>Azul</strong></label>
-                            <div class='theme-selector' style='background:rgb(39, 107, 170)' (click)="setTheme('blue')">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+          </div>
 
-        </section>
-        <footer class="modal-card-foot">
-            <button class="button is-secondary" (click)='saveConfig()'>Guardar</button>
-            <button class="button is-success" (click)='toggleConfigPanel()'>Cancelar</button>
-        </footer>
-    </div>
+          <h5>Estilo del contador</h5>
+          <div
+            class="columns is-mobile mt-2"
+            style="
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+            "
+          >
+            <div
+              class="column is-narrow counter-container"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              [ngClass]="{ selected: normalStyle() }"
+              (click)="setStyle('normal')"
+            >
+              <p class="countdown has-text-white" style="font-size: 60px">
+                25:00
+              </p>
+            </div>
+            <div
+              class="column is-narrow counter-container"
+              style="display: flex; justify-content: center"
+              [ngClass]="{ selected: !normalStyle() }"
+              (click)="setStyle('circular')"
+            >
+              <div class="box2">
+                <div class="percent">
+                  <div class="number">
+                    <p style="margin-top: 15px; margin-bottom: -15px">25</p>
+                    <p style="margin-top: -15px; margin-bottom: 15px">00</p>
+                  </div>
+                  <svg>
+                    <circle cx="75" cy="75" r="70"></circle>
+                    <circle
+                      cx="75"
+                      cy="75"
+                      r="70"
+                      [ngStyle]="{ 'stroke-dashoffset': 440 - (440 * 0) / 100 }"
+                    ></circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h5>Tema</h5>
+          <div class="columns is-mobile">
+            <div class="column is-2">
+              <label><strong>Verde</strong></label>
+              <div
+                class="theme-selector"
+                style="background: rgb(75, 184, 137)"
+                (click)="setTheme('green')"
+              ></div>
+            </div>
+            <div class="column is-2">
+              <label><strong>Azul</strong></label>
+              <div
+                class="theme-selector"
+                style="background: rgb(39, 107, 170)"
+                (click)="setTheme('blue')"
+              ></div>
+            </div>
+            <div class="column is-2">
+              <label><strong>Rojo</strong></label>
+              <div
+                class="theme-selector"
+                style="background: rgb(245, 35, 70)"
+                (click)="setTheme('red')"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-secondary" (click)="saveConfig()">
+        Guardar
+      </button>
+      <button class="button is-success" (click)="toggleConfigPanel()">
+        Cancelar
+      </button>
+    </footer>
+  </div>
 </div>

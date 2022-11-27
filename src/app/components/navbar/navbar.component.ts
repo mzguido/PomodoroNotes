@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'firebase/auth';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styles: [],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  showLogIn = false;
+  public user: User | null = null;
+  constructor(private authService: AuthService) {
+    this.authService.user.subscribe((user) => (this.user = user));
+  }
 
   ngOnInit(): void {}
 
@@ -28,5 +34,9 @@ export class NavbarComponent implements OnInit {
     let burger = document.getElementsByClassName('navbar-burger')[0];
     menu.classList.toggle('is-active');
     burger.classList.toggle('is-active');
+  }
+
+  toggleLogIn() {
+    this.showLogIn = !this.showLogIn;
   }
 }

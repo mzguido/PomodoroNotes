@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { List } from 'src/app/models/List';
 import { PomodoroService } from 'src/app/services/pomodoro.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-pomodoro',
@@ -39,7 +40,8 @@ export class PomodoroComponent implements OnInit {
   }
 
   save() {
-    localStorage.setItem('lists', JSON.stringify(this.lists));
+    // localStorage.setItem('lists', JSON.stringify(this.lists));
+    this.pomodoroService.save();
   }
 
   newList() {

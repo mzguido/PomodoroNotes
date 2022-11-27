@@ -1,0 +1,25 @@
+<div id="black-background">
+  <div class="login-container">
+    <p>Log in with yout google account</p>
+    <button
+      class="button google-btn"
+      (click)="loginWithGoogle()"
+      *ngIf="!isAuth"
+    >
+      Log in with Google &nbsp; <i class="bi bi-google"> </i>
+    </button>
+
+    <button class="button google-btn" (click)="logOut()" *ngIf="isAuth">
+      Log out &nbsp; <i class="bi bi-google"> </i>
+    </button>
+  </div>
+</div>
+<!-- <p>
+  Auth!
+  <code>{{ (user | async)?.uid }}</code>
+  <button (click)="login()" *ngIf="showLoginButton">Log in with Google</button>
+  <button (click)="loginAnonymously()" *ngIf="showLoginButton">
+    Log in anonymously
+  </button>
+  <button (click)="logout()" *ngIf="showLogoutButton">Log out</button>
+</p> -->

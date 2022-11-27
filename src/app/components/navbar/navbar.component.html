@@ -9,9 +9,29 @@
       <span class="brand">PomoNotes</span>
     </a>
 
-    <a class="config-btn" (click)="toggleConfigPanel()"
-      ><i class="bi bi-gear-fill"></i>
-    </a>
+    <div class="left-items">
+      <div class="loginBtnMobile">
+        <div *ngIf="user; then logout; else login"></div>
+        <ng-template #login>
+          <a class="config-btn" (click)="toggleLogIn()">
+            <i class="bi bi-person-circle"></i>
+          </a>
+        </ng-template>
+
+        <ng-template #logout>
+          <img
+            (click)="toggleLogIn()"
+            [src]="user!.photoURL"
+            class="user-img"
+            alt="user.photo"
+          />
+        </ng-template>
+      </div>
+
+      <a class="config-btn" (click)="toggleConfigPanel()"
+        ><i class="bi bi-gear-fill"></i>
+      </a>
+    </div>
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
@@ -36,21 +56,45 @@
 
 <app-config-panel></app-config-panel>
 
+<app-login *ngIf="showLogIn"></app-login>
+
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
   .config-btn {
-    align-self: center;
+    /* align-self: center; */
     width: 35px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .brand {
     font-family: "Dosis", sans-serif;
     font-size: 1.5rem;
+    font-weight: 700;
   }
 
   .navbar-brand {
     justify-content: space-between !important;
     width: 100%;
+  }
+
+  .left-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    color: white;
+    width: 100px;
+  }
+
+  .user-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  .loginBtnMobile {
+    display: flex;
   }
 </style>

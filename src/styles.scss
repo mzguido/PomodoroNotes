@@ -4,6 +4,9 @@
 
 // Import a Google Font
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 // @import "../node_modules/bulma/sass/utilities/initial-variables.sass";
 // @import "../node_modules/bulma/sass/utilities/derived-variables.sass";
@@ -15,8 +18,8 @@
 // $accent: rgb(87, 148, 144);
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$primary: #efeef5;
+$family-sans-serif: "Dosis", sans-serif;
+$primary: #eaeaea;
 $secondary: rgb(106, 186, 180);
 // $info: rgb(87, 148, 144);
 // $scheme-main: $grey;
@@ -33,19 +36,30 @@ $secondary: rgb(106, 186, 180);
 // }
 
 div.main-container[data-theme="green"] {
-  --bgColor: rgb(87, 148, 144);
-  --primaryColor: #efeef5;
-  --secondaryColor: rgb(106, 186, 180);
+  --bgColor: rgb(64, 167, 122);
+  --primaryColor: #eaeaea;
+  --secondaryColor: rgb(105, 199, 158);
   --accentColor: ;
-  --shadeColor: rgb(75, 129, 125);
-  --secColorRGB: 106, 186, 180;
+  --shadeColor: rgb(40, 136, 94);
+  --secColorRGB: 105, 199, 158;
+  background-color: var(--bgColor);
+  $info: var(--shadeColor);
+}
+
+div.main-container[data-theme="red"] {
+  --bgColor: rgb(216, 28, 60);
+  --primaryColor: #eaeaea;
+  --secondaryColor: rgb(248, 94, 118);
+  --accentColor: ;
+  --shadeColor: rgb(194, 10, 38);
+  --secColorRGB: 248, 94, 118;
   background-color: var(--bgColor);
   $info: var(--shadeColor);
 }
 
 div.main-container[data-theme="blue"] {
   --bgColor: rgb(39, 107, 170);
-  --primaryColor: #efeef5;
+  --primaryColor: #eaeaea;
   --secondaryColor: rgb(122, 159, 235);
   --accentColor: ;
   --shadeColor: rgb(70, 99, 155);

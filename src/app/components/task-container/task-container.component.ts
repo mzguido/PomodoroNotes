@@ -194,7 +194,7 @@ export class TaskContainerComponent implements OnInit, AfterViewInit {
   toggleColapse() {
     document.getElementById(this.list!.id)?.classList.toggle('is-hidden');
     this.list.colapsed = !this.list.colapsed;
-    this.pomodoroService.save();
+    this.pomodoroService.saveOnlyLocal();
   }
 
   toggleEditPanel() {

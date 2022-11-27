@@ -123,7 +123,7 @@ export class CountdownComponent implements OnInit {
         // );
       }
       if (this.i === 4) {
-        this.i = 1;
+        this.i = 0;
         this.currentCounter = this.longBreakCounter;
       } else {
         this.currentCounter = this.breakCounter;
